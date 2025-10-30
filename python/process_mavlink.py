@@ -91,15 +91,15 @@ def parse_corupted_mavlink(input_path):
 
 
 if __name__ == "__main__":
-    #process_file("few_messeges.txt", "no_methadata.txt")
-    #process_file("corupted_start.txt", "no_methadata.txt")
-    #process_file("with_methadata.txt", "no_methadata.txt")
-    #process_file("badly_corupted_start.txt", "no_methadata.txt")
-    process_file("long_corrupted_file.txt", "no_methadata.txt")
+    #process_file("python/few_messeges.txt", "python/no_methadata.txt")
+    #process_file("python/corupted_start.txt", "python/no_methadata.txt")
+    #process_file("python/with_methadata.txt", "python/no_methadata.txt")
+    #process_file("python/badly_corupted_start.txt", "no_methadata.txt")
+    process_file("python/long_corrupted_file.txt", "python/no_methadata.txt")
     parser = mavlink_v1.MAVLink(None)
-    hexfile_to_binfile("no_methadata.txt", "mavlink.bin")
+    hexfile_to_binfile("python/no_methadata.txt", "python/mavlink.bin")
    
-    type_list, messege_list = parse_corupted_mavlink("no_methadata.txt")
+    type_list, messege_list = parse_corupted_mavlink("python/no_methadata.txt")
     #type_list, messege_list = parse_corupted_mavlink("recordings_from_company/manually_edited_clean_hexa_dump.txt")
     type_set = set(type_list)
     pass

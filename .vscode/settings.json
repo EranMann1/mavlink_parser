@@ -1,0 +1,6 @@
+{
+    "C_Cpp.default.compilerPath": "/mnt/c/Users/eranm/mavlink_parsing/test",
+    "files.associations": {
+        "mavlink.h": "c"
+    }
+}
