@@ -1,8 +1,53 @@
-apt-offline set dependencies.sig --install-packages \
-"gcc g++ make cmake gdb build-essential \
-tmux tcpdump jq \
-libpcap-dev libwireshark-dev wireshark-dev tshark \
-libglib2.0-dev pkg-config \
-libusb-1.0-0-dev \
-libserialport-dev \
-git"
+docker run -it --platform linux/arm64 --name gateworks2 ubuntu:18.04 bash
+
+apt-get update
+apt-get install -y apt-offline apt-rdepends
+
+
+
+
+docker start -ai gateworks2
+
+apt-get update
+which apt-offline
+
+apt-offline set dependencies.sig --install-packages libwireshark-dev
+
+
+apt-offline set dependencies_gcc.sig --install-packages gcc
+apt-offline set dependencies_g++.sig --install-packages g++
+apt-offline set dependencies_make.sig --install-packages make
+apt-offline set dependencies_cmake.sig --install-packages cmake
+apt-offline set dependencies_build-essential.sig --install-packages build-essential
+apt-offline set dependencies_gdb.sig --install-packages gdb
+apt-offline set dependencies_valgrind.sig --install-packages valgrind
+apt-offline set dependencies_libpcap-dev.sig --install-packages libpcap-dev
+apt-offline set dependencies_libwireshark-dev.sig --install-packages libwireshark-dev
+apt-offline set dependencies_wireshark-dev.sig --install-packages wireshark-dev
+apt-offline set dependencies_tshark.sig --install-packages tshark
+apt-offline set dependencies_libglib2.0-dev.sig --install-packages libglib2.0-dev
+apt-offline set dependencies_pkg-config.sig --install-packages pkg-config
+apt-offline set dependencies_libusb-1.0-0-dev.sig --install-packages libusb-1.0-0-dev
+apt-offline set dependencies_libserialport-dev.sig --install-packages libserialport-dev
+apt-offline set dependencies_git.sig --install-packages git
+
+
+cat dependencies_gcc.sig \
+    dependencies_g++.sig \
+    dependencies_make.sig \
+    dependencies_cmake.sig \
+    dependencies_build-essential.sig \
+    dependencies_gdb.sig \
+    dependencies_valgrind.sig \
+    dependencies_libpcap-dev.sig \
+    dependencies_libwireshark-dev.sig \
+    dependencies_wireshark-dev.sig \
+    dependencies_tshark.sig \
+    dependencies_libglib2.0-dev.sig \
+    dependencies_pkg-config.sig \
+    dependencies_libusb-1.0-0-dev.sig \
+    dependencies_libserialport-dev.sig \
+    dependencies_git.sig > dependencies_all.sig
+
+
+apt-offline get --bundle dependencies1.zip dependencies_all.sig
