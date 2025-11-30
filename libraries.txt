@@ -30,24 +30,33 @@ apt-offline set dependencies_pkg-config.sig --install-packages pkg-config
 apt-offline set dependencies_libusb-1.0-0-dev.sig --install-packages libusb-1.0-0-dev
 apt-offline set dependencies_libserialport-dev.sig --install-packages libserialport-dev
 apt-offline set dependencies_git.sig --install-packages git
+apt-offline set dependencies_tcpdump.sig  --install-packages tcpdump
+apt-offline set dependencies_tmux.sig  --install-packages tmux
+apt-offline set dependencies_libpcap-dev.sig  --install-packages libpcap-dev
+apt-offline set dependencies_jq.sig  --install-packages jq
 
 
 cat dependencies_gcc.sig \
-    dependencies_g++.sig \
-    dependencies_make.sig \
-    dependencies_cmake.sig \
-    dependencies_build-essential.sig \
-    dependencies_gdb.sig \
-    dependencies_valgrind.sig \
-    dependencies_libpcap-dev.sig \
-    dependencies_libwireshark-dev.sig \
-    dependencies_wireshark-dev.sig \
-    dependencies_tshark.sig \
-    dependencies_libglib2.0-dev.sig \
-    dependencies_pkg-config.sig \
-    dependencies_libusb-1.0-0-dev.sig \
-    dependencies_libserialport-dev.sig \
-    dependencies_git.sig > dependencies_all.sig
+    dependencies_g++.sig\
+    dependencies_make.sig\
+    dependencies_cmake.sig\
+    dependencies_build-essential.sig\
+    dependencies_gdb.sig\
+    dependencies_valgrind.sig\
+    dependencies_libpcap-dev.sig\
+    dependencies_libwireshark-dev.sig\
+    dependencies_wireshark-dev.sig\
+    dependencies_tshark.sig\
+    dependencies_libglib2.0-dev.sig\
+    dependencies_pkg-config.sig\
+    dependencies_libusb-1.0-0-dev.sig\
+    dependencies_libserialport-dev.sig\
+    dependencies_tcpdump.sig\
+    dependencies_tmux.sig\
+    dependencies_libpcap-dev.sig\
+    dependencies_jq.sig\
+    dependencies_git.sig > dependencies_all1.sig
 
 
-apt-offline get --bundle dependencies1.zip dependencies_all.sig
+apt-offline get --bundle dependencies1.zip dependencies_all1.sig
+
