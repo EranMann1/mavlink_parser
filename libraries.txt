@@ -34,6 +34,7 @@ apt-offline set dependencies_tcpdump.sig  --install-packages tcpdump
 apt-offline set dependencies_tmux.sig  --install-packages tmux
 apt-offline set dependencies_libpcap-dev.sig  --install-packages libpcap-dev
 apt-offline set dependencies_jq.sig  --install-packages jq
+apt-offline set dependencies_unzip.sig --install-packages unzip
 
 
 cat dependencies_gcc.sig \
@@ -54,9 +55,19 @@ cat dependencies_gcc.sig \
     dependencies_tcpdump.sig\
     dependencies_tmux.sig\
     dependencies_libpcap-dev.sig\
+    dependencies_unzip.sig \
     dependencies_jq.sig\
     dependencies_git.sig > dependencies_all1.sig
 
 
 apt-offline get --bundle dependencies1.zip dependencies_all1.sig
 
+
+
+
+
+dpkg -i *.deb
+
+apt-get install -f
+
+dpkg --configure -a
