@@ -1,0 +1,8 @@
+apt-offline set dependencies.sig --install-packages \
+"gcc g++ make cmake gdb build-essential \
+tmux tcpdump jq \
+libpcap-dev libwireshark-dev wireshark-dev tshark \
+libglib2.0-dev pkg-config \
+libusb-1.0-0-dev \
+libserialport-dev \
+git"
